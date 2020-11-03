@@ -1,7 +1,11 @@
 package com.flux.webflux.repo;
 
 import com.flux.webflux.domain.Message;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface MessageRepo extends ReactiveCrudRepository<Message, Long> {
+import java.util.List;
+
+public interface MessageRepo extends MongoRepository<Message, Long> {
+
+    List<Message> findAllByData(String data);
 }

@@ -16,11 +16,14 @@ public class MessageService {
         this.messageRepo = messageRepo;
     }
 
-    public Flux<Message> list() {
-        return messageRepo.findAll();
+    public Flux<Message> getAll() {
+        return Flux.fromIterable(messageRepo.findAll());
+    }
+    public Flux<Message> getSpecifiedMessages(String field) {
+        return Flux.fromIterable(messageRepo.findAll());
     }
 
     public Mono<Message> addOne(Message message) {
-        return messageRepo.save(message);
+        return Mono.just(messageRepo.save(message));
     }
 }

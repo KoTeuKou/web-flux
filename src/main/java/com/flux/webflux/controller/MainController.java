@@ -17,11 +17,16 @@ public class MainController {
     }
 
     @GetMapping
-    public Flux<Message> list(
-            @RequestParam(defaultValue = "0") Long start,
-            @RequestParam(defaultValue = "3") Long count
-    ) {
-        return messageService.list();
+    public Flux<Message> specifiedMessages(@RequestParam String field) {
+        return messageService.getSpecifiedMessages(field)
+                .switchIfEmpty(messageService.getAll())
+                .take(5);
+    }
+
+    @GetMapping
+    public Flux<Message> allMessages(@RequestParam(defaultValue = "5") Integer count) {
+        return messageService.getAll()
+                .take(count);
     }
 
     @PostMapping
