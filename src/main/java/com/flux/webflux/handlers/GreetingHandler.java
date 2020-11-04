@@ -8,9 +8,11 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
+import java.util.concurrent.Flow;
 
 @Component
 public class GreetingHandler {
+
     public Mono<ServerResponse> hello(ServerRequest request) {
         Long start = request.queryParam("start")
                 .map(Long::valueOf)
@@ -22,7 +24,7 @@ public class GreetingHandler {
         Flux<Message> data = Flux
                 .just(
                         "Hello, reactive!",
-                        "More then one",
+                        "More than one",
                         "Third post",
                         "Fourth post",
                         "Fifth post"

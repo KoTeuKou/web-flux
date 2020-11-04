@@ -17,8 +17,8 @@ public class MainController {
     }
 
     @GetMapping
-    public Flux<Message> specifiedMessages(@RequestParam String field) {
-        return messageService.getSpecifiedMessages(field)
+    public Flux<Message> specifiedMessages(@RequestParam String data) {
+        return messageService.getSpecifiedMessages(data)
                 .switchIfEmpty(messageService.getAll())
                 .take(5);
     }

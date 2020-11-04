@@ -8,15 +8,9 @@ group = 'com.flux'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
 
 repositories {
     mavenCentral()
-    maven { url 'https://repo.spring.io/milestone' }
 }
 
 dependencies {
@@ -25,9 +19,8 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
+    compile 'org.mongodb:mongodb-driver-reactivestreams:1.13.1'
     compile "org.springframework.data:spring-data-mongodb:1.6.2.RELEASE"
-    compile "org.mongodb:mongo-java-driver:3.0.0"
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
