@@ -23,7 +23,7 @@ public class MainController {
                 .take(5);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public Flux<Message> allMessages(@RequestParam(defaultValue = "5") Integer count) {
         return messageService.getAll()
                 .take(count);

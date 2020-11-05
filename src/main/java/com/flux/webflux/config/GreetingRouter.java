@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.*;
 
 public class GreetingRouter {
+
     @Bean
     public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
         RequestPredicate route = RequestPredicates

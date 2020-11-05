@@ -15,12 +15,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    compile 'org.mongodb:mongodb-driver-reactivestreams:1.13.1'
-    compile "org.springframework.data:spring-data-mongodb:1.6.2.RELEASE"
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+    compileOnly('org.projectlombok:lombok')
+    compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
