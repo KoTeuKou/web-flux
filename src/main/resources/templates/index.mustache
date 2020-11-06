@@ -8,6 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-Hello, {{user}}!
+<div align="center">
+<h2>Ну привет, {{user}}!</h2>
+    <form method="post" action="/controller/add">
+        <label for="data">Введите текст сообщения: </label>
+        <input type="text" id="data" name="data">
+        <input type="submit" value="Добавить" />
+    </form>
+</div>
 </body>
 </html>

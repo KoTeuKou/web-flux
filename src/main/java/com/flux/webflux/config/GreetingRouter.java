@@ -2,9 +2,11 @@ package com.flux.webflux.config;
 
 import com.flux.webflux.handlers.GreetingHandler;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.*;
 
+@Configuration
 public class GreetingRouter {
 
     @Bean

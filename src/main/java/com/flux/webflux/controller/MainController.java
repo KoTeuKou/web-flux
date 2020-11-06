@@ -16,7 +16,7 @@ public class MainController {
         this.messageService = messageService;
     }
 
-    @GetMapping
+    @GetMapping("/spec")
     public Flux<Message> specifiedMessages(@RequestParam String data) {
         return messageService.getSpecifiedMessages(data)
                 .switchIfEmpty(messageService.getAll())
@@ -29,8 +29,8 @@ public class MainController {
                 .take(count);
     }
 
-    @PostMapping
-    public Mono<Message> add (@RequestBody Message message) {
-        return messageService.addOne(message);
+    @PostMapping("/add")
+    public Mono<Message> add(@RequestParam String data) {
+        return messageService.addOne(new Message(data));
     }
 }
